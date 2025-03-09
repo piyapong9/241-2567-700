@@ -43,6 +43,24 @@
             width: 50%;
             height: 40px;
         }
+
+        .message{
+            margin-button: 10px;
+            padding: 10px;
+            background-color:rgb(128, 180, 240);
+            display: none;
+        }
+
+        .message.success{
+            background-color: lightgreen;
+            display: block;
+        }
+
+        .message.danger{
+            background-color: lightcoral;
+            display: block;
+        }
+
         @media  screen and (max-width: 768px){
             .flex {
                 flex-direction: column;
