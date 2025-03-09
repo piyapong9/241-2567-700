@@ -2,7 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
+<<<<<<< HEAD
 const e = require('express');
+=======
+>>>>>>> 933434b5f7f4e70677527f207f508a80dbee64db
 const app = express();
 
 const port = 8000;
@@ -24,6 +27,7 @@ const initMysql = async () => {
 })
 }
 
+<<<<<<< HEAD
 const validateData = (userData) => {
   let errors = []
 
@@ -48,6 +52,8 @@ const validateData = (userData) => {
   return errors
 }
 
+=======
+>>>>>>> 933434b5f7f4e70677527f207f508a80dbee64db
 /*
 app.get('/testdbnew',async (req, res) => {
 
@@ -78,6 +84,7 @@ app.get('/users', async (req, res) => {
 
 // path = POST /user สำหรับสร้าง user ใหม่
 app.post('/users', async (req, res) => {
+<<<<<<< HEAD
 
   try{
     let user = req.body;
@@ -100,6 +107,20 @@ app.post('/users', async (req, res) => {
     res.status(500).json({
       message: errorMessage,
       errors: errors
+=======
+
+  try{
+    let user = req.body;
+    const results = await conn.query('INSERT INTO users SET ?', user)
+    res.json({
+      message: 'Create user successfully',
+      data: results[0]
+    })
+  }catch(error){
+    console.log('error:', error.message)
+    res.status(500).json({
+      message: 'Something went wrong',
+      errorMessage: error.message
     })
   }
 })
@@ -120,10 +141,48 @@ app.get('/users/:id', async (req, res) => {
     res.status(500).json({
       message: 'Something went wrong',
       errorMessage: error.message
+>>>>>>> 933434b5f7f4e70677527f207f508a80dbee64db
     })
   }
 })
 
+<<<<<<< HEAD
+// path = GET /users/:id สำหรับ ดึง users รายคนออกมา
+app.get('/users/:id', async (req, res) => {
+  try{
+    let id = req.params.id;
+    const results = await conn.query('SELECT * FROM users WHERE id = ?', id)
+    if(results[0].length == 0){
+      throw {statusCode: 404, message: 'User not found'}
+    }
+    res.json(results[0][0])
+
+  }catch(error){
+    console.log('error:', error.message)
+    let statusCode = error.statusCode || 500
+=======
+// path: PUT /users/:id สำหรับแก้ไข users รายคน (ตาม id ที่บันทึกเข้าไป)
+app.put('/users/:id', async (req, res) => {
+
+  try{
+    let id = req.params.id;
+    let updateUser = req.body;
+    const results = await conn.query('UPDATE users SET ? WHERE id = ?', [updateUser, id])
+    res.json({
+      message: 'Update user successfully',
+      data: results[0]
+    })
+  }catch(error){
+    console.log('error:', error.message)
+>>>>>>> 933434b5f7f4e70677527f207f508a80dbee64db
+    res.status(500).json({
+      message: 'Something went wrong',
+      errorMessage: error.message
+    })
+  }
+})
+
+<<<<<<< HEAD
 // path: PUT /users/:id สำหรับแก้ไข users รายคน (ตาม id ที่บันทึกเข้าไป)
 app.put('/users/:id', async (req, res) => {
 
@@ -144,6 +203,8 @@ app.put('/users/:id', async (req, res) => {
   }
 })
 
+=======
+>>>>>>> 933434b5f7f4e70677527f207f508a80dbee64db
 
 //path: DELETE /users/:id สำหรับลบ users รายคน ตาม id ที่บันทึกเข้าไป)
 app.delete('/users/:id', async (req, res) => {
