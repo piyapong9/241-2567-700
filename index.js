@@ -20,15 +20,12 @@ window.onload = async () => {
         let lastnameDOM = document.querySelector('input[name=lastname]')
         let ageDOM = document.querySelector('input[name=age]')
         let descriptionDOM = document.querySelector('textarea[name=description]')
-
         firstnameDOM.value = user.firstname
         lastnameDOM.value = user.lastname
         ageDOM.value = user.age
         descriptionDOM.value = user.description
-
         let genderDOMs = document.querySelectorAll('input[name=gender]')
         let interestDOMs = document.querySelectorAll('input[name=interest]')
-
             for (let i = 0; i < genderDOMs.length; i++) {
                 if (genderDOMs[i].value == user.gender) {
                     genderDOMs[i].checked = true
@@ -39,14 +36,11 @@ window.onload = async () => {
                     interestDOMs[i].checked = true
                 }
             }
-
         }catch (error) {
             console.log('error',error)
         }
     }
 }
-
-
 
 const validateData = (userData) => {
     let errors = []
@@ -76,9 +70,9 @@ const submitData = async () => {
     let firstnameDOM = document.querySelector('input[name=firstname]');
     let lastnameDOM = document.querySelector('input[name=lastname]');
     let ageDOM = document.querySelector('input[name=age]');
+    let descriptionDOM = document.querySelector('textarea[name=description]');
     let genderDOM = document.querySelector('input[name=gender]:checked') || {}
     let interestDOM = document.querySelectorAll('input[name=interest]:checked') || {}
-    let descriptionDOM = document.querySelector('textarea[name=description]');
     let messageDOM = document.getElementById('message');
 
     try {

@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
-const e = require('express');
 const app = express();
 
 const port = 8000;
@@ -78,7 +77,6 @@ app.get('/users', async (req, res) => {
 
 // path = POST /user สำหรับสร้าง user ใหม่
 app.post('/users', async (req, res) => {
-
   try{
     let user = req.body;
     const errors = validateData(user)
@@ -143,7 +141,6 @@ app.put('/users/:id', async (req, res) => {
     })
   }
 })
-
 
 //path: DELETE /users/:id สำหรับลบ users รายคน ตาม id ที่บันทึกเข้าไป)
 app.delete('/users/:id', async (req, res) => {

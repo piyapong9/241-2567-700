@@ -13,14 +13,18 @@
             max-width: 640px;
             margin-left: auto;
             margin-right: auto;
-            background-color: aliceblue;
+            background-color: #DCD7C9;
             padding: 20px;
             box-sizing: border-box;
+            border-radius: 10px; /* มุมโค้ง */
+            box-shadow: 0px 4px 6px rgba(24, 24, 24, 0.658); /* เพิ่มเงา */
         }
         .header{
+            color: #2C3930;
             font-size: 30px;
             text-align: center;
             margin-bottom: 20px;
+            text-shadow: 0px 4px 6px rgba(30, 29, 29, 0.304);
         }
         .header-form{
             width: 150px;
@@ -35,15 +39,6 @@
             border: 1px solid #ccc;
             width: 100%;
         }
-        .center{
-            text-align: center
-        }
-        .button{
-            border: 0px;
-            width: 50%;
-            height: 40px;
-        }
-
         .message{
             margin-bottom: 10px;
             padding: 10px;
@@ -61,6 +56,48 @@
             display: block;
         }
 
+        i{
+            display: inline-flex;
+            color: #2C3930;
+            font-size: 48px;
+            margin-bottom: 20px;
+            transform: scale(1);
+            transition: transform 0.2s ease; /* ทำให้เอฟเฟกต์ลื่นไหล */
+            
+        }
+        i:hover {
+            color: #A27B5C;
+            transform: scale(1.1); /* ขยายขนาด 1.1 เท่า */
+            text-shadow: 0px 4px 6px rgba(48, 44, 44, 0.304);
+        }
+        textarea {
+            resize: none; /* ปิดการปรับขนาด */
+            overflow: auto; /* แสดง scroll bar หากเนื้อหาเกิน */
+        }
+        .button{
+            background-color: #A5B68D;
+            width: 50%;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            transform: scale(1);
+            transition: transform 0.2s ease-in; /* ทำให้เอฟเฟกต์ลื่นไหล */
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(70, 70, 70, 0.26);
+        }
+        .button:hover{
+            background-color: #A27B5C;
+            transform: scale(1.01); /* ขยายขนาด 1.1 เท่า */
+            box-shadow: 0px 4px 6px rgba(24, 24, 24, 0.658);
+        }
+        .center{
+            text-align: center;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer */
+        }
+    
+
         @media  screen and (max-width: 768px){
             .flex {
                 flex-direction: column;
@@ -69,6 +106,6 @@
                 font-size: 24px;
             }
             .button{
-                width: 100%;
+                width: 40%;
             }
         }
